@@ -9,9 +9,10 @@ export class Api {
     async get(endpoint, params) {
         let authorization = "&authorization=ffbc1ededa6f23371bc40df1864843be";
         let output = "&output=json";
+        let cors = "https://yacdn.org/proxy/";
         let baseUrl = "https://zoeken.oba.nl/api/v1";
         try {
-            let response = await fetch(baseUrl + endpoint + params + authorization + output);
+            let response = await fetch(cors + baseUrl + endpoint + params + authorization + output);
             return response.json()
         } catch (error) {
             console.log(`Something went wrong: ${error}`);
