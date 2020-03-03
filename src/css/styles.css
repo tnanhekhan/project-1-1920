@@ -1,5 +1,91 @@
+:root {
+    /* All colors */
+    --purple: hsl(275, 57%, 50%);
+    --purple-dark: hsl(275, 57%, 45%);
+    --purple-light: hsl(275, 57%, 55%);
+    --pink: hsl(332, 65%, 62%);
+    --orange: hsl(34, 97%, 50%);
+    --orange-dark: hsl(34, 97%, 45%);
+    --orange-light: hsl(34, 97%, 55%);
+    --yellow: hsl(53, 100%, 49%);
+    --blue: rgb(0, 209, 188);
+    --red: rgb(252, 110, 105);
+    --red-dark: hsl(2, 96%, 62%);
+    --red-light: hsl(2, 96%, 72%);
+}
 
-.book-cover-image{
-    width: 200px;
+body {
+    font-family: 'Oxanium', cursive;
+}
+
+body {
+    margin: 0;
+    background-image: url("../resources/background-image-2.png");
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1em;
+    background-color: white;
+    width: fit-content;
+    border-radius: 4px;
+    box-sizing: border-box;
+    width: 400px;
+}
+
+.artist-search-input {
+    font-family: inherit;
+    font-size: inherit;
+    padding: 12px 20px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #ccc;
+    border-right-style: none;   
+}
+
+.top-section, .main-section {
+    margin: 1em;
+}
+
+.book-results-container {
+    background-color: var(--blue);
+    border-radius: 1em;
+    padding: 0.5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.book-result {
+    width: 250px;
+    border-radius: 0.5em;
+    margin: 0.5em;
+}
+
+.book-title, .book-description {
+    margin: 0px;
+}
+
+.book-description {
+    margin-top: 0.5em;
+}
+
+.group-buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.book-cover-image {
+    width: 100%;
     height: auto;
 }
