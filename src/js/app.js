@@ -1,25 +1,104 @@
 import { Api } from "./modules/data/api/api.mjs";
 import { BookRepository } from "./modules/data/repo/book-repository.mjs";
+import "./libs/transparency.js";
 
 const query = "boek";
 const bookRepository = new BookRepository();
 let currentPage = 1;
 
+const topics = [
+  [
+    "Dieren",
+    "Honden",
+    "Katten",
+    "Paarden",
+    "Dinosaurussen",
+    "Vogels",
+    "Huisdieren",
+    "Wilde dieren",
+    "Dolfijnen",
+    "Zindelijkheid",
+    "Insecten"
+  ],
+  ["Seizoenen", "Lente", "Zomer", "Herfst", "Winter", "jaargetijden", "Pasen"],
+  [
+    "Landen",
+    "Nederland",
+    "Frankrijk",
+    "Amsterdam",
+    "Verenigde Staten",
+    "Afrika",
+    "Suriname",
+    "New York (stad)"
+  ],
+  [
+    "Geschiedenis",
+    "Middeleeuwen",
+    "17e eeuw",
+    "19e eeuw",
+    "Griekse Oudheid",
+    "Toekomst",
+    "Egyptische Oudheid",
+    "Prehistorie",
+    "Jodenvervolging"
+  ],
+  ["Sport", "Voetbal"],
+  ["Mode", "Kleding", "Winkelen"],
+  ["Natuur", "Aarde", "Natuurwetenschappen", "Ruimtevaart"],
+  ["Reizen"],
+  ["Eten"],
+  ["Muziek"]
+];
+
+printBooks();
+
 document.getElementById("search").onclick = () => {
   printBooks();
 };
 
-function printBooks() {
+async function printBooks() {
   bookRepository.getBooks(query, currentPage).then(res => {
     let books = res.results;
     currentPage = parseInt(res.meta["current-page"]) + 1;
-    let frablList = books.map(book => {
-      return book.frabl.value;
-    });
     console.log(books);
-    // bookRepository.getBookDetails(frablList[18])
-    //     .then(results => {
-    //         console.log(results)
-    //     })
+
+    setBooks(books);
   });
+}
+
+function setBooks(books) {
+  if (!books) return;
+
+  let booksData = books.map(book => {
+    return {
+      title: book.titles[0],
+      cover: book.coverimages[book.coverimages.length - 1],
+      description: book.authors
+    };
+  });
+
+  let directives = {
+    ["book-cover-image"]: {
+      src: function() {
+        return this.cover;
+      }
+    },
+    ["book-title"]: {
+      text: function() {
+        return this.title;
+      }
+    },
+    ["book-description"]: {
+      text: function() {
+        return this.description;
+      }
+    }
+  };
+
+  Transparency.render(
+    document.getElementById("book-results-container"),
+    booksData,
+    directives,
+    null
+  );
 }

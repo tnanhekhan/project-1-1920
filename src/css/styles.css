@@ -48,7 +48,7 @@ body {
     width: 100%;
     border-radius: 4px 0 0 4px;
     border: 1px solid #ccc;
-    border-right-style: none;   
+    border-right-style: none;
 }
 
 .top-section, .main-section {
@@ -66,23 +66,30 @@ body {
 }
 
 .book-result {
-    width: 250px;
+    width: 150px;
     border-radius: 0.5em;
-    margin: 0.5em;
+    margin: 1em 0.5em;
 }
 
 .book-title, .book-description {
     margin: 0px;
 }
 
+.book-title {
+    font-size: 20px;
+}
+
 .book-description {
     margin-top: 0.5em;
+    font-size: 16px;
 }
 
 .group-buttons-container {
     display: flex;
     flex-direction: row;
     justify-content: left;
+    flex-wrap: wrap;
+    margin-bottom: -1em;
 }
 
 .book-cover-image {
