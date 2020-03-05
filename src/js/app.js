@@ -2,7 +2,6 @@ import {Api} from "./modules/data/api/api.mjs";
 import {BookRepository} from "./modules/data/repo/book-repository.mjs";
 import "./libs/transparency.js";
 
-
 const topics = [
     [
         "Dieren",
@@ -50,20 +49,60 @@ const topics = [
 let currentPage = 1;
 
 printBooks();
+init();
+
+// Get the modal
+var modal = document.getElementById("modal");
 
 document.getElementById("search").onclick = () => {
     printBooks();
 };
 
-async function printBooks() {
-    var bookRepository = new BookRepository();
-    bookRepository.getBooks("dieren", currentPage).then(res => {
-        let books = res.results;
-        currentPage = parseInt(res.meta["current-page"]) + 1;
-        console.log(books);
+function init() {
+  setMainTopics(topics);
+}
+
+async function printBooks(topic) {
+  var bookRepository = new BookRepository();
+
+  bookRepository.getBooks(topic).then(res => {
+    let books = res.results;
+    currentPage = parseInt(res.meta["current-page"]) + 1;
+    console.log(books);
 
         setBooks(books);
     });
+}
+
+// Listener for clicking a topic button
+document.querySelectorAll(".modal-topic").forEach(value => {
+  value.addEventListener("click", evt => {
+    printBooks(value.innerHTML)
+  })
+});
+function setMainTopics(topics) {
+  if (!topics) return;
+
+  let mainTopicsData = topics.map(topic => {
+    return {
+      topic: topic[0]
+    };
+  });
+
+  let directives = {
+    ["modal-topic"]: {
+      text: function () {
+        return this.topic;
+      }
+    }
+  };
+
+  Transparency.render(
+    document.getElementById("modal-topics-container"),
+    mainTopicsData,
+    directives,
+    null
+  );
 }
 
 function setBooks(books) {
