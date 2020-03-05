@@ -5,20 +5,20 @@ export class BookRepository {
         this.api = api;
     }
 
-    getYouthBooks(query, page) {
+    getYouthBooks(topic, page) {
         const endpoint = "/search/?";
-        const sisoFilter = `q=(siso:"J*")`;
+        const searchQuery = `q=special:all`;
         const resultPage = `&page=${page}`;
-        const facets = `&facet=Language(dut)&facet=Type(book)&facet=topic(${query})&facet=doelgroep(ageYouth)&refine=true`;
-        return this.api.get(endpoint, sisoFilter + resultPage + facets);
+        const facets = `&facet=Language(dut)&facet=Type(book)&facet=topic(${topic})&facet=doelgroep(ageYouth)&refine=true`;
+        return this.api.get(endpoint, searchQuery + resultPage + facets);
     }
 
-    getBooks(query, page) {
+    getBooks(topic, page) {
         const endpoint = "/search/?";
-        const sisoFilter = `q=(siso:"J*")`;
+        const searchQuery = `q=special:all`;
         const resultPage = `&page=${page}`;
-        const facets = `&facet=Language(dut)&facet=Type(book)&facet=topic(${query})&refine=true`;
-        return this.api.get(endpoint, sisoFilter + resultPage + facets);
+        const facets = `&facet=Language(dut)&facet=Type(book)&facet=topic(${topic})&refine=true`;
+        return this.api.get(endpoint, searchQuery + resultPage + facets);
     }
 
     getBookDetails(ids) {

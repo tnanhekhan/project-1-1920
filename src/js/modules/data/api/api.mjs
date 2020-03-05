@@ -11,9 +11,8 @@ export class Api {
         let output = "&output=json";
         let cors = "https://yacdn.org/proxy/";
         let baseUrl = "https://zoeken.oba.nl/api/v1";
-        let detail = "&detaillevel=basic";
         try {
-            let response = await fetch(cors + baseUrl + endpoint + params + authorization + output + detail);
+            let response = await fetch(cors + baseUrl + endpoint + params + authorization + output);
             return response.json()
         } catch (error) {
             console.log(`Something went wrong: ${error}`);
