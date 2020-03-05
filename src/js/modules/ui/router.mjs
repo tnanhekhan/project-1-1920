@@ -1,35 +1,28 @@
 import "../../libs/routie.js"
 import {BookRepository} from "../data/repo/book-repository.mjs";
+import {Template} from "./template.mjs";
 
 let currentPage = 1;
 let bookRepository = new BookRepository();
 
+printBooks();
 
 routie({
-    "vissen": () => {
-        printBooks("vissen");
-    },
-    "honden": () => {
-        printBooks("honden");
-
-    },
-    "planten": () => {
-        printBooks("planten");
-
-    },
-    "reizen": () => {
-        printBooks("reizen");
-
+    "book/:id": id => {
+        document.querySelector(".main-section").style.display = "none";
     }
 });
 
-function printBooks(query) {
-    bookRepository.getBooks(query, currentPage).then(res => {
+document.getElementById("search").onclick = () => {
+    printBooks();
+};
+
+function printBooks() {
+    let bookRepository = new BookRepository();
+    let template = new Template();
+    bookRepository.getBooks("dieren", currentPage).then(res => {
         let books = res.results;
         currentPage = parseInt(res.meta["current-page"]) + 1;
-        let frablList = books.map(book => {
-            return book.frabl.value;
-        });
-        console.log(books);
+        template.renderBooks(books);
     });
 }

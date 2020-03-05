@@ -23,10 +23,8 @@ body {
     background-image: url("../resources/background-image-2.png");
     height: 100%;
     width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-repeat: repeat;
+    background-size: 600px;
 }
 
 .search-container {
@@ -95,4 +93,21 @@ body {
 .book-cover-image {
     width: 100%;
     height: auto;
+}
+
+#book-detail-container {
+    display: flex;
+    justify-content: left;
+}
+
+.book-detail-result {
+    display: flex;
+}
+
+.book-detail-text {
+    padding-left: 16px;
+}
+
+.book-detail-result {
+    alignment: left;
 }

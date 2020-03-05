@@ -1,7 +1,6 @@
-import {Api} from "./modules/data/api/api.mjs";
 import {BookRepository} from "./modules/data/repo/book-repository.mjs";
-import "./libs/transparency.js";
-
+import {Template} from "./modules/ui/template.mjs";
+import "./modules/ui/router.mjs";
 
 const topics = [
     [
@@ -46,59 +45,3 @@ const topics = [
     ["Eten"],
     ["Muziek"]
 ];
-
-let currentPage = 1;
-
-printBooks();
-
-document.getElementById("search").onclick = () => {
-    printBooks();
-};
-
-async function printBooks() {
-    var bookRepository = new BookRepository();
-    bookRepository.getBooks("dieren", currentPage).then(res => {
-        let books = res.results;
-        currentPage = parseInt(res.meta["current-page"]) + 1;
-        console.log(books);
-
-        setBooks(books);
-    });
-}
-
-function setBooks(books) {
-    if (!books) return;
-
-    let booksData = books.map(book => {
-        return {
-            title: book.titles[0],
-            cover: book.coverimages[book.coverimages.length - 1],
-            description: book.authors
-        };
-    });
-
-    let directives = {
-        ["book-cover-image"]: {
-            src: function () {
-                return this.cover;
-            }
-        },
-        ["book-title"]: {
-            text: function () {
-                return this.title;
-            }
-        },
-        ["book-description"]: {
-            text: function () {
-                return this.description;
-            }
-        }
-    };
-
-    Transparency.render(
-        document.getElementById("book-results-container"),
-        booksData,
-        directives,
-        null
-    );
-}

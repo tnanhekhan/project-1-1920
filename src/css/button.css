@@ -35,9 +35,9 @@
     box-shadow: none;
 }
 
-/* Small button */
+/* Book button */
 
-.small-button {
+.book-button {
     font-size: 1em;
     background-color: var(--red);
     text-shadow: 0 -1px -1px var(--red-dark);
@@ -49,10 +49,15 @@
     line-height: calc(2em + 2px);
 }
 
-.small-button:hover {
+.book-button:hover {
     background-color: var(--red-light);
     text-shadow: 0 -1px -1px var(--red-dark);
     box-shadow: 0 4px 0 var(--red-dark), 0 5px 5px 1px rgba(0, 0, 0, 0.4);
+}
+
+.book-button:active {
+    transform: translateY(4px);
+    box-shadow: none;
 }
 
 /* Search button */
@@ -81,4 +86,8 @@
     transform: none;
     box-shadow: none;
     transition: none;
+}
+
+.book-detail-back-button{
+    margin-bottom: 24px;
 }

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link
             href="https://fonts.googleapis.com/css?family=Oxanium&display=swap"
             rel="stylesheet"
     />
-    <link rel="stylesheet" href="src/css/styles.css" />
-    <link rel="stylesheet" href="src/css/button.css" />
-    <link rel="icon" href="favicon.svg" " sizes="any " type="image/svg+xml ">
+    <link rel="stylesheet" href="src/css/styles.css"/>
+    <link rel="stylesheet" href="src/css/button.css"/>
+    <link rel="icon" href="favicon.svg"
+    " sizes="any " type="image/svg+xml ">
     <title>Spreekbeurt Helper</title>
 </head>
 
@@ -24,44 +25,67 @@
                 placeholder="Zoek naar een onderwerp "
         />
         <a id="search" class="button search-button" onclick="printBooks()">Zoeken</a>
-      </div>
-      <div class="group-buttons-container ">
-        <a class="button ">Dieren</a> 
+    </div>
+    <div class="group-buttons-container ">
+        <a class="button ">Dieren</a>
         <!-- Honden Katten Paarden Dinosaurussen Vogels Huisdieren [Wilde dieren] Dolfijnen Zindelijkheid Insecten-->
 
-        <a class="button ">Seizoenen</a> 
+        <a class="button ">Seizoenen</a>
         <!-- Lente Zomer Herfst Winter jaargetijden Pasen-->
 
-        <a class="button ">Landen</a> 
+        <a class="button ">Landen</a>
         <!-- Nederland, Frnakrijk Amsterdam [Verenigde Staten] Afrika Vluchtelingen Suriname [New York (stad)] -->
 
         <a class="button ">Geschiedenis</a>
         <!-- Middeleeuwen, 17e eeuw, 19e eeuw Griekse Oudheid Toekomst [Egyptische Oudheid] Prehistorie Jodenvervolging   -->
 
         <a class="button ">Sport</a>
-                <!-- Voetbal,  -->
-                <a class="button ">Mode</a>
-                <!-- Kleding Winkelen -->
+        <!-- Voetbal,  -->
+        <a class="button ">Mode</a>
+        <!-- Kleding Winkelen -->
         <a class="button ">Natuur</a>
         <!-- Aarde Natuurwetenschappen Ruimtevaart  -->
 
-        
+
         <a class="button ">Reizen</a>
         <a class="button ">Eten</a>
-        
+
         <a class="button ">Muziek</a>
-      </div>
     </div>
-    <div class="main-section ">
-      <div id="book-results-container" class="book-results-container">
+</div>
+<div class="main-section ">
+    <div id="book-results-container" class="book-results-container">
         <div class="book-result ">
-          <img class="book-cover-image " />
-          <h2 class="book-title "></h2>
-          <p class="book-description "></p>
-          <a class="button small-button ">Bekijk Boek</a>
+            <img class="book-cover-image "/>
+            <h2 class="book-title "></h2>
+            <p class="book-description "></p>
+            <a class="button book-button ">Bekijk Boek</a>
         </div>
-      </div>
     </div>
+</div>
+<div class="main-section detail-section">
+    <div id="book-detail-container" class="book-results-container">
+        <a class="button book-button book-detail-back-button">Terug naar *topic*</a>
+        <div class="book-detail-result ">
+            <img class="book-detail-cover-image"
+                 src="https://via.placeholder.com/200x300.png?text=cover"/>
+            <div class="book-detail-text">
+                <h2 class="book-detail-title ">Het boek</h2>
+                <p class="book-detail-author">Schrijver</p>
+                <p class="book-detail-description ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras a
+                    lectus
+                    ut augue ornare porta molestie semper tortor. Ut eget leo id odio fermentum mattis ut ut neque.
+                    Morbi
+                    auctor mi eget arcu interdum, sed blandit augue interdum. Curabitur a sem eu nulla hendrerit
+                    vulputate
+                    in et risus. Quisque in maximus massa. Mauris malesuada placerat arcu, vel pellentesque enim.
+                    Aliquam
+                    velit erat, suscipit eget justo gravida, dignissim finibus velit.</p>
+                <p class="book-detail-availability">Not available</p>
+        </div>
+        </div>
+    </div>
+</div>
 </div>
 </div>
 
