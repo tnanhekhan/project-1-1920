@@ -22,7 +22,7 @@ document.getElementById("book-detail-back-button").onclick = () => {
 routie({
     "book/:id": id => {
         fetchBookDetails(id);
-        document.querySelector(".main-section").style.display = "none";
+        // document.querySelector(".main-section").style.display = "none";
     },
     "/topic/:topic": topic => {
         fetchBooks(topic);
@@ -30,7 +30,7 @@ routie({
     },
     "": () => {
         currentPage = 1;
-        document.querySelector(".detail-section").style.display = "none";
+        // document.querySelector(".detail-section").style.display = "none";
     },
     "/*/:answer": () => {
         ChangeUi.replaceTopicQuestionByMainTopics()
