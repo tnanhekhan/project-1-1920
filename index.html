@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="src/css/button.css" />
   <link rel="stylesheet" href="src/css/modal.css" />
   <link rel="icon" href="favicon.svg" sizes=" any " type=" image/svg+xml ">
-
   <title>Spreekbeurt Helper</title>
 </head>
 
@@ -37,8 +36,23 @@
   <!-- Inital modal that will be shown to the user to select a subject -->
   <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal -->
   <div id="modal" class="modal">
-    <div class="modal-content">
+    <div id="select-group" class="modal-content">
       <h2>Welkom bij de spreekbeurt helper!</h2>
+      <p>In welk klas zit je?</p>
+      <div id="modal-group-container" class="group-buttons-container">
+        <a class="button modal-group"></a>
+      </div>
+    </div>
+
+    <div id="topic-question" class="modal-content">
+      <p>Weet je al een onderwerp?</p>
+      <div class="group-buttons-container">
+        <a id="yes-button" class="button">Ja</a>
+        <a id="no-button" class="button">Nee</a>
+      </div>
+    </div>
+
+    <div id="select-topic" class="modal-content">
       <p>Kies hieronder een onderwerp die je interessant vindt</p>
       <div id="modal-topics-container" class="group-buttons-container">
         <a class="button modal-topic"></a>
@@ -50,10 +64,13 @@
         <a id="search" class="button search-button" onclick="printBooks()">Zoeken</a>
       </div>
     </div>
+
+
   </div>
   </div>
   </div>
   <script src="./src/js/app.js" type="module"></script>
+  <script src="./src/js/modules/ui/router.mjs" type="module"></script>
 </body>
 
 </html>

@@ -1,26 +1,24 @@
 import "../../libs/routie.js"
-import {BookRepository} from "../data/repo/book-repository.mjs";
+import { BookRepository } from "../data/repo/book-repository.mjs";
+import * as ChangeUi from "../ui/change-ui.mjs";
 
 let currentPage = 1;
 let bookRepository = new BookRepository();
 
-
 routie({
-    "vissen": () => {
-        printBooks("vissen");
+    "/topic/:topic": () => {
+        console.log("topic");
+        ChangeUi.hideModal()
     },
-    "honden": () => {
-        printBooks("honden");
-
+    "/*/:answer": () => {
+        console.log("answer");
+        ChangeUi.replaceTopicQuestionByMainTopics()
     },
-    "planten": () => {
-        printBooks("planten");
-
-    },
-    "reizen": () => {
-        printBooks("reizen");
-
+    "/:group": () => {
+        console.log("group");
+        ChangeUi.replaceGroupByTopicQuestion()
     }
+
 });
 
 function printBooks(query) {
