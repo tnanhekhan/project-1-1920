@@ -37,7 +37,7 @@
 
 /* Book button */
 
-.book-button {
+.red-button {
     font-size: 1em;
     background-color: var(--red);
     text-shadow: 0 -1px -1px var(--red-dark);
@@ -49,13 +49,13 @@
     line-height: calc(2em + 2px);
 }
 
-.book-button:hover {
+.red-button:hover {
     background-color: var(--red-light);
     text-shadow: 0 -1px -1px var(--red-dark);
     box-shadow: 0 4px 0 var(--red-dark), 0 5px 5px 1px rgba(0, 0, 0, 0.4);
 }
 
-.book-button:active {
+.red-button:active {
     transform: translateY(4px);
     box-shadow: none;
 }
@@ -88,6 +88,14 @@
     transition: none;
 }
 
-.book-detail-back-button{
+.book-detail-back-button {
+    margin-right: auto;
+    width: 15%;
     margin-bottom: 24px;
+}
+
+#more-books-button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vw;
 }

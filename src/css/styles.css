@@ -32,13 +32,12 @@ body {
     flex-direction: row;
     margin-bottom: 1em;
     background-color: white;
-    width: fit-content;
     border-radius: 4px;
     box-sizing: border-box;
     width: 400px;
 }
 
-.artist-search-input {
+.book-search-input {
     font-family: inherit;
     font-size: inherit;
     padding: 12px 20px;
@@ -54,9 +53,6 @@ body {
 }
 
 .book-results-container {
-    background-color: var(--blue);
-    border-radius: 1em;
-    padding: 0.5em;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -64,7 +60,13 @@ body {
 }
 
 .book-result {
-    width: 150px;
+    display: flex;
+    flex-direction: column;
+    background-image: url("../resources/book-background.png");
+    background-repeat: repeat;
+    background-size: 450px;
+    padding: 1em;
+    width: 195px;
     border-radius: 0.5em;
     margin: 1em 0.5em;
 }
@@ -80,6 +82,7 @@ body {
 .book-description {
     margin-top: 0.5em;
     font-size: 16px;
+    flex-grow: 1;
 }
 
 .group-buttons-container {
@@ -93,15 +96,29 @@ body {
 .book-cover-image {
     width: 100%;
     height: auto;
+    padding-bottom: 16px;
 }
 
 #book-detail-container {
     display: flex;
-    justify-content: left;
+    flex-direction: row;
+    flex-wrap: wrap;
+    background-color: var(--blue);
+    border-radius: 0.5em;
+    margin: 1em 0.5em;
+    padding: 1em;
 }
 
 .book-detail-result {
     display: flex;
+}
+
+.book-detail-header{
+    width: 100%;
+}
+
+.book-detail-cover-image{
+    margin-right: auto;
 }
 
 .book-detail-text {
@@ -110,4 +127,31 @@ body {
 
 .book-detail-result {
     alignment: left;
+}
+
+.top-section{
+    display: flex;
+}
+
+#main-search{
+    margin-left: auto;
+}
+
+.loader-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.loader {
+    padding: 16px;
+    width: 48px;
+    height: 48px;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
