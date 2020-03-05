@@ -2,9 +2,6 @@ import { Api } from "./modules/data/api/api.mjs";
 import { BookRepository } from "./modules/data/repo/book-repository.mjs";
 import "./libs/transparency.js";
 
-const query = "boek";
-const bookRepository = new BookRepository();
-let currentPage = 1;
 
 const topics = [
   [
