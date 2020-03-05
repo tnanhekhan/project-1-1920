@@ -21,8 +21,15 @@ export class BookRepository {
         return this.api.get(endpoint, searchQuery + resultPage + facets);
     }
 
-    getBookDetails(ids) {
+    getBookDetails(id) {
         const endpoint = "/details/?";
-        return this.api.get(endpoint, `frabl=${ids}&detaillevel=extended`);
+        const params = `frabl=${id}&detaillevel=librarian`;
+        return this.api.get(endpoint, params);
+    }
+
+    getBookAvailability(id) {
+        const endpoint = "/availability/?";
+        const params = `frabl=${id}&detaillevel=librarian`;
+        return this.api.getXML(endpoint, params)
     }
 }

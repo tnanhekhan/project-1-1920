@@ -1,5 +1,3 @@
-import {BookRepository} from "./modules/data/repo/book-repository.mjs";
-import {Template} from "./modules/ui/template.mjs";
 import "./modules/ui/router.mjs";
 
 const topics = [

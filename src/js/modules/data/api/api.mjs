@@ -1,3 +1,5 @@
+import {XmlToJson} from "../../../libs/xmltojson.js";
+
 export class Api {
     /**
      *
@@ -14,6 +16,20 @@ export class Api {
         try {
             let response = await fetch(cors + baseUrl + endpoint + params + authorization + output);
             return response.json()
+        } catch (error) {
+            console.log(`Something went wrong: ${error}`);
+        }
+    }
+
+    async getXML(endpoint, params) {
+        let xmlToJson = new XmlToJson();
+        let authorization = "&authorization=ffbc1ededa6f23371bc40df1864843be";
+        let cors = "https://yacdn.org/proxy/";
+        let baseUrl = "https://zoeken.oba.nl/api/v1";
+        try {
+            let response = await fetch(cors + baseUrl + endpoint + params + authorization);
+            let parsedResponse = new DOMParser().parseFromString(response.text(), "text/xml");
+            return xmlToJson.parse(parsedResponse);
         } catch (error) {
             console.log(`Something went wrong: ${error}`);
         }
