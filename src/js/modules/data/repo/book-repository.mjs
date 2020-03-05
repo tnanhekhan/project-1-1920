@@ -5,13 +5,31 @@ export class BookRepository {
         this.api = api;
     }
 
-    getBooks(query, page) {
+    getYouthBooks(topic, page) {
         const endpoint = "/search/?";
-        return this.api.get(endpoint, `q=${query}&page=${page}`);
+        const searchQuery = `q=special:all`;
+        const resultPage = `&page=${page}`;
+        const facets = `&facet=Language(dut)&facet=Type(book)&facet=topic(${topic})&facet=doelgroep(ageYouth)&refine=true`;
+        return this.api.get(endpoint, searchQuery + resultPage + facets);
     }
 
-    getBookDetails(ids) {
+    getBooks(topic, page) {
+        const endpoint = "/search/?";
+        const searchQuery = `q=special:all`;
+        const resultPage = `&page=${page}`;
+        const facets = `&facet=Language(dut)&facet=Type(book)&facet=topic(${topic})&refine=true`;
+        return this.api.get(endpoint, searchQuery + resultPage + facets);
+    }
+
+    getBookDetails(id) {
         const endpoint = "/details/?";
-        return this.api.get(endpoint, `frabl=${ids}&librarian=true`);
+        const params = `frabl=${id}&detaillevel=librarian`;
+        return this.api.get(endpoint, params);
+    }
+
+    getBookAvailability(id) {
+        const endpoint = "/availability/?";
+        const params = `frabl=${id}&detaillevel=librarian`;
+        return this.api.getXML(endpoint, params)
     }
 }

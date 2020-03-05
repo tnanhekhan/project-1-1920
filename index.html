@@ -1,85 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/css/styles.css" />
-    <link rel="stylesheet" href="src/css/button.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Oxanium&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="favicon.svg" " sizes="any " type="image/svg+xml ">
+
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="src/css/styles.css"/>
+    <link rel="stylesheet" href="src/css/button.css"/>
+    <link rel="stylesheet" href="src/css/modal.css"/>
+    <link rel="icon" href="favicon.svg" sizes=" any " type=" image/svg+xml ">
     <title>Spreekbeurt Helper</title>
-  </head>
+</head>
 
-  <body>
-    <div class="top-section ">
-      <div class="search-container ">
-        <input
-          type="text "
-          class="artist-search-input "
-          list="word-list "
-          id="artist-name-input "
-          placeholder="Zoek naar een onderwerp "
-        />
-        <a id="search" class="button search-button" onclick="printBooks()">Zoeken</a>
-      </div>
-      <div class="group-buttons-container ">
-        <a class="button ">Honden</a>
-        <a class="button ">Planten</a>
-        <a class="button ">Reizen</a>
-        <a class="button ">Vissen</a>
-      </div>
+<body>
+<div class=" top-section ">
+    <div class=" search-container ">
+        <input type=" text " class=" artist-search-input " list=" word-list " id=" artist-name-input "
+               placeholder=" Zoek naar een onderwerp "/>
+        <a id=" search" class="button search-button" onclick="printBooks()">Zoeken</a>
     </div>
-    <div class="main-section ">
-      <div class="book-results-container ">
-        <div class="book-result ">
-          <img src="src/resources/ìnspiration.png " class="book-cover-image " />
-          <h2 class="book-title ">Hond op de trein</h2>
-          <p class="book-description ">Dit is een boek over een hond</p>
-          <a class="button small-button ">Bekijk boek</a>
-        </div>
-        <div class="book-result ">
-          <img src="src/resources/ìnspiration.png " class="book-cover-image " />
-          <h2 class="book-title ">Hond op de trein</h2>
-          <p class="book-description ">Dit is een boek over een hond</p>
-          <a class="button small-button ">Bekijk boek</a>
-        </div>
-        <div class="book-result ">
-          <img src="src/resources/ìnspiration.png " class="book-cover-image " />
-          <h2 class="book-title ">Hond op de trein</h2>
-          <p class="book-description ">Dit is een boek over een hond</p>
-          <a class="button small-button ">Bekijk boek</a>
-        </div>
-        <div class="book-result ">
-          <img src="src/resources/ìnspiration.png " class="book-cover-image " />
-          <h2 class="book-title ">Hond op de trein</h2>
-          <p class="book-description ">Dit is een boek over een hond</p>
-          <a class="button small-button ">Bekijk boek</a>
-        </div>
-        <div class="book-result ">
-          <img src="src/resources/ìnspiration.png " class="book-cover-image " />
-          <h2 class="book-title ">Hond op de trein</h2>
-          <p class="book-description ">Dit is een boek over een hond</p>
-          <a class="button small-button ">Bekijk boek</a>
-        </div>
-        <div class="book-result ">
-          <img src="src/resources/ìnspiration.png " class="book-cover-image " />
-          <h2 class="book-title ">Hond op de trein</h2>
-          <p class="book-description ">Dit is een boek over een hond</p>
-          <a class="button small-button ">Bekijk boek</a>
-        </div>
-        <div class="book-result ">
-          <img src="src/resources/ìnspiration.png " class="book-cover-image " />
-          <h2 class="book-title ">Hond op de trein</h2>
-          <p class="book-description ">Dit is een boek over een hond</p>
-          <a class="button small-button ">Bekijk boek</a>
-        </div>
-      </div>
+    <div class="group-buttons-container ">
+        <a class="button "></a>
     </div>
+</div>
+<div class="main-section ">
+    <div id="book-results-container" class="book-results-container">
+        <div class="book-result">
+            <img class="book-cover-image"/>
+            <h2 class="book-title"></h2>
+            <p class="book-description"></p>
+            <a class="button small-button book-button">Bekijk Boek</a>
+        </div>
+    </div>
+</div>
+<!-- Inital modal that will be shown to the user to select a subject -->
+<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal -->
+<div id="modal" class="modal">
+    <div id="select-group" class="modal-content">
+        <h2>Welkom bij de spreekbeurt helper!</h2>
+        <p>In welk klas zit je?</p>
+        <div id="modal-group-container" class="group-buttons-container">
+            <a class="button modal-group"></a>
+        </div>
     </div>
 
-    <script src="./src/js/app.js" type="module"></script>
-  </body>   
+    <div id="topic-question" class="modal-content">
+        <p>Weet je al een onderwerp?</p>
+        <div class="group-buttons-container">
+            <a id="yes-button" class="button">Ja</a>
+            <a id="no-button" class="button">Nee</a>
+        </div>
+    </div>
+
+    <div id="select-topic" class="modal-content">
+        <p>Kies hieronder een onderwerp die je interessant vindt</p>
+        <div id="modal-topics-container" class="group-buttons-container">
+            <a class="button modal-topic"></a>
+        </div>
+        <p>Of zoek hier op een specifiek onderwerp</p>
+        <div class="search-container ">
+            <input type="text " class="artist-search-input " list="word-list " id="artist-name-input "
+                   placeholder="Zoek naar een onderwerp "/>
+            <a id="search" class="button search-button" onclick="printBooks()">Zoeken</a>
+        </div>
+    </div>
+</div>
+<div class="main-section detail-section">
+    <div id="book-detail-container" class="book-results-container">
+        <a class="button book-button book-detail-back-button" id="book-detail-back-button">Terug naar *topic*</a>
+        <div class="book-detail-result ">
+            <img class="book-detail-cover-image"/>
+            <div class="book-detail-text">
+                <h2 class="book-detail-title "></h2>
+                <p class="book-detail-author"></p>
+                <p class="book-detail-description "></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="./src/js/app.js" type="module"></script>
+<script src="./src/js/modules/ui/router.mjs" type="module"></script>
+</body>
+
 </html>
