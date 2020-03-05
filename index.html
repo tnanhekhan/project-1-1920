@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link
-            href="https://fonts.googleapis.com/css?family=Oxanium&display=swap"
-            rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="src/css/styles.css"/>
     <link rel="stylesheet" href="src/css/button.css"/>
-    <link rel="icon" href="favicon.svg"
-    " sizes="any " type="image/svg+xml ">
+    <link rel="stylesheet" href="src/css/modal.css"/>
+    <link rel="icon" href="favicon.svg" sizes=" any " type=" image/svg+xml ">
     <title>Spreekbeurt Helper</title>
 </head>
 
 <body>
-<div class="top-section ">
-    <div class="search-container ">
-        <input
-                type="text "
-                class="artist-search-input "
-                list="word-list "
-                id="artist-name-input "
-                placeholder="Zoek naar een onderwerp "
-        />
-        <a id="search" class="button search-button" onclick="printBooks()">Zoeken</a>
+<div class=" top-section ">
+    <div class=" search-container ">
+        <input type=" text " class=" artist-search-input " list=" word-list " id=" artist-name-input "
+               placeholder=" Zoek naar een onderwerp "/>
+        <a id=" search" class="button search-button" onclick="printBooks()">Zoeken</a>
     </div>
     <div class="group-buttons-container ">
-        <a class="button ">Dieren</a>
-        <!-- Honden Katten Paarden Dinosaurussen Vogels Huisdieren [Wilde dieren] Dolfijnen Zindelijkheid Insecten-->
-
-        <a class="button ">Seizoenen</a>
-        <!-- Lente Zomer Herfst Winter jaargetijden Pasen-->
-
-        <a class="button ">Landen</a>
-        <!-- Nederland, Frnakrijk Amsterdam [Verenigde Staten] Afrika Vluchtelingen Suriname [New York (stad)] -->
-
-        <a class="button ">Geschiedenis</a>
-        <!-- Middeleeuwen, 17e eeuw, 19e eeuw Griekse Oudheid Toekomst [Egyptische Oudheid] Prehistorie Jodenvervolging   -->
-
-        <a class="button ">Sport</a>
-        <!-- Voetbal,  -->
-        <a class="button ">Mode</a>
-        <!-- Kleding Winkelen -->
-        <a class="button ">Natuur</a>
-        <!-- Aarde Natuurwetenschappen Ruimtevaart  -->
-
-
-        <a class="button ">Reizen</a>
-        <a class="button ">Eten</a>
-
-        <a class="button ">Muziek</a>
+        <a class="button "></a>
     </div>
 </div>
 <div class="main-section ">
     <div id="book-results-container" class="book-results-container">
-        <div class="book-result ">
-            <img class="book-cover-image "/>
-            <h2 class="book-title "></h2>
-            <p class="book-description "></p>
-            <a class="button book-button ">Bekijk Boek</a>
+        <div class="book-result">
+            <img class="book-cover-image"/>
+            <h2 class="book-title"></h2>
+            <p class="book-description"></p>
+            <a class="button small-button book-button">Bekijk Boek</a>
+        </div>
+    </div>
+</div>
+<!-- Inital modal that will be shown to the user to select a subject -->
+<!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal -->
+<div id="modal" class="modal">
+    <div id="select-group" class="modal-content">
+        <h2>Welkom bij de spreekbeurt helper!</h2>
+        <p>In welk klas zit je?</p>
+        <div id="modal-group-container" class="group-buttons-container">
+            <a class="button modal-group"></a>
+        </div>
+    </div>
+
+    <div id="topic-question" class="modal-content">
+        <p>Weet je al een onderwerp?</p>
+        <div class="group-buttons-container">
+            <a id="yes-button" class="button">Ja</a>
+            <a id="no-button" class="button">Nee</a>
+        </div>
+    </div>
+
+    <div id="select-topic" class="modal-content">
+        <p>Kies hieronder een onderwerp die je interessant vindt</p>
+        <div id="modal-topics-container" class="group-buttons-container">
+            <a class="button modal-topic"></a>
+        </div>
+        <p>Of zoek hier op een specifiek onderwerp</p>
+        <div class="search-container ">
+            <input type="text " class="artist-search-input " list="word-list " id="artist-name-input "
+                   placeholder="Zoek naar een onderwerp "/>
+            <a id="search" class="button search-button" onclick="printBooks()">Zoeken</a>
         </div>
     </div>
 </div>
@@ -76,9 +78,9 @@
         </div>
     </div>
 </div>
-</div>
-</div>
 
 <script src="./src/js/app.js" type="module"></script>
+<script src="./src/js/modules/ui/router.mjs" type="module"></script>
 </body>
+
 </html>

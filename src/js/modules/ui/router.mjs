@@ -1,6 +1,7 @@
 import "../../libs/routie.js"
 import {BookRepository} from "../data/repo/book-repository.mjs";
 import {Template} from "./template.mjs";
+import * as ChangeUi from "../ui/change-ui.mjs";
 
 // dependencies
 const bookRepository = new BookRepository();
@@ -23,15 +24,24 @@ routie({
         fetchBookDetails(id);
         document.querySelector(".main-section").style.display = "none";
     },
+    "/topic/:topic": topic => {
+        fetchBooks(topic);
+        ChangeUi.hideModal()
+    },
     "": () => {
         currentPage = 1;
-        fetchBooks();
         document.querySelector(".detail-section").style.display = "none";
+    },
+    "/*/:answer": () => {
+        ChangeUi.replaceTopicQuestionByMainTopics()
+    },
+    "/:group": () => {
+        ChangeUi.replaceGroupByTopicQuestion()
     }
 });
 
-function fetchBooks() {
-    bookRepository.getBooks("dieren", currentPage).then(res => {
+function fetchBooks(topic) {
+    bookRepository.getBooks(topic, currentPage).then(res => {
         currentPage = parseInt(res.meta["current-page"]) + 1;
         template.renderBooks(res.results);
     });
