@@ -1,7 +1,8 @@
 import "../../libs/transparency.js";
+import * as ChangeUi from "../ui/change-ui.mjs";
 
 export class Template {
-    renderBooks(books) {
+    renderBooks(books, currentPage, currentTopic) {
         if (!books) return;
 
         let booksData = books.map(book => {
@@ -34,12 +35,15 @@ export class Template {
             },
             ["book-button"]: {
                 href: function () {
-                    return "#book/" + this.id
+                    return `#topic/${currentTopic}/${currentPage}/book/${this.id}`
                 }
             }
         };
 
-        document.querySelector(".main-section").style.display = "block";
+        ChangeUi.showAllSections();
+        ChangeUi.showMoreBooksButton();
+        ChangeUi.hideLoader();
+
         Transparency.render(
             document.getElementById("book-results-container"),
             booksData,
@@ -52,10 +56,6 @@ export class Template {
         if (!bookDetails) return;
         let bookDetailsArray = [];
         bookDetailsArray.push(bookDetails);
-        console.log(bookDetailsArray);
-        // bookDetails.marc21.fields.forEach(field => {
-        //     console.log(field[Object.keys(field)[0]].subfields)
-        // });
 
         let details = bookDetailsArray.map(details => {
             return {
@@ -69,7 +69,7 @@ export class Template {
         let directives = {
             ["book-detail-cover-image"]: {
                 src: function () {
-                    return this.cover.substring(0, this.cover.lastIndexOf('=')) + "=500";
+                    return this.cover.substring(0, this.cover.lastIndexOf('=')) + "=400";
                 }
             },
             ["book-detail-title"]: {
@@ -89,12 +89,73 @@ export class Template {
             }
         };
 
-        document.querySelector(".detail-section").style.display = "block";
+        ChangeUi.showDetail();
+        ChangeUi.hideLoader();
         Transparency.render(
             document.getElementById("book-detail-container"),
             details,
             directives,
             null
         )
+    }
+
+    renderGroups(groups) {
+        if (!groups) return;
+
+        let groupData = groups.map(group => {
+            return {
+                group: group
+            };
+        });
+
+        let directives = {
+            ["modal-group"]: {
+                text: function () {
+                    return this.group;
+                },
+                href: function () {
+                    let groupNumber = this.group.match(/\d+$/)[0];
+                    return "#group/" + groupNumber;
+                }
+            }
+        };
+
+        Transparency.render(
+            document.getElementById("modal-group-container"),
+            groupData,
+            directives,
+            null
+        );
+    }
+
+    renderTopics(topics) {
+        if (!topics) return;
+
+        let mainTopicsData = topics.map(topic => {
+            return {
+                topic: topic[0]
+            };
+        });
+
+        let directives = {
+            ["modal-topic"]: {
+                text: function () {
+                    return this.topic;
+                },
+                href: function () {
+                    return "#topic/" + this.topic.toLowerCase();
+                }
+            }
+        };
+
+        ChangeUi.hideAllSections();
+        ChangeUi.showModal();
+
+        Transparency.render(
+            document.getElementById("modal-topics-container"),
+            mainTopicsData,
+            directives,
+            null
+        );
     }
 }

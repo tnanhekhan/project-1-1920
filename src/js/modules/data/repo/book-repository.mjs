@@ -5,6 +5,14 @@ export class BookRepository {
         this.api = api;
     }
 
+    getAdultBooks(topic, page) {
+        const endpoint = "/search/?";
+        const searchQuery = `q=special:all`;
+        const resultPage = `&page=${page}`;
+        const facets = `&facet=Language(dut)&facet=Type(book)&facet=topic(${topic})&facet=doelgroep(ageAdults)&refine=true`;
+        return this.api.get(endpoint, searchQuery + resultPage + facets);
+    }
+
     getYouthBooks(topic, page) {
         const endpoint = "/search/?";
         const searchQuery = `q=special:all`;

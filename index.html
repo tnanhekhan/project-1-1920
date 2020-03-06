@@ -14,14 +14,18 @@
 
 <body>
 <div class=" top-section ">
-    <div class=" search-container ">
-        <input type=" text " class=" artist-search-input " list=" word-list " id=" artist-name-input "
-               placeholder=" Zoek naar een onderwerp "/>
-        <a id=" search" class="button search-button" onclick="printBooks()">Zoeken</a>
-    </div>
     <div class="group-buttons-container ">
-        <a class="button "></a>
+        <a class="button" id="home-button">Begin opnieuw</a>
     </div>
+    <div class=" search-container " id="main-search">
+        <input type=" text " class=" book-search-input " id="main-search-input"
+               placeholder="Toets hier een ander onderwerp in! "/>
+        <a id="main-search-button" class="button search-button">Ga!</a>
+    </div>
+</div>
+<div class="loader-container">
+    <h2 class="loader-message">Wij zoeken nu naar jouw boeken!</h2>
+    <img class="loader" src="./src/resources/book-solid.svg">
 </div>
 <div class="main-section ">
     <div id="book-results-container" class="book-results-container">
@@ -29,7 +33,7 @@
             <img class="book-cover-image"/>
             <h2 class="book-title"></h2>
             <p class="book-description"></p>
-            <a class="button small-button book-button">Bekijk Boek</a>
+            <a class="button small-button red-button book-button">Bekijk Boek</a>
         </div>
     </div>
 </div>
@@ -38,7 +42,7 @@
 <div id="modal" class="modal">
     <div id="select-group" class="modal-content">
         <h2>Welkom bij de spreekbeurt helper!</h2>
-        <p>In welk klas zit je?</p>
+        <p>In welke groep zit je?</p>
         <div id="modal-group-container" class="group-buttons-container">
             <a class="button modal-group"></a>
         </div>
@@ -53,21 +57,27 @@
     </div>
 
     <div id="select-topic" class="modal-content">
-        <p>Kies hieronder een onderwerp die je interessant vindt</p>
-        <div id="modal-topics-container" class="group-buttons-container">
-            <a class="button modal-topic"></a>
+        <div id="no-known-subject-topics">
+            <p>Kies een onderwerp dat jij leuk vindt!</p>
+            <div id="modal-topics-container" class="group-buttons-container">
+                <a class="button modal-topic"></a>
+            </div>
         </div>
-        <p>Of zoek hier op een specifiek onderwerp</p>
-        <div class="search-container ">
-            <input type="text " class="artist-search-input " list="word-list " id="artist-name-input "
-                   placeholder="Zoek naar een onderwerp "/>
-            <a id="search" class="button search-button" onclick="printBooks()">Zoeken</a>
+        <div id="known-subject-topics">
+            <p>Vul hier jouw onderwerp in:</p>
+            <div class="search-container ">
+                <input type="text " class="book-search-input " id="modal-search-input"
+                       placeholder="Toets hier jouw onderwerp in! "/>
+                <a id="modal-search-button" class="button search-button">Zoeken</a>
+            </div>
         </div>
     </div>
 </div>
 <div class="main-section detail-section">
-    <div id="book-detail-container" class="book-results-container">
-        <a class="button book-button book-detail-back-button" id="book-detail-back-button">Terug naar *topic*</a>
+    <div id="book-detail-container">
+        <div class="book-detail-header">
+            <a class="button red-button book-detail-back-button" id="book-detail-back-button">Terug</a>
+        </div>
         <div class="book-detail-result ">
             <img class="book-detail-cover-image"/>
             <div class="book-detail-text">
@@ -78,9 +88,9 @@
         </div>
     </div>
 </div>
+<a class="button" id="more-books-button">Meer boeken</a>
 
 <script src="./src/js/app.js" type="module"></script>
-<script src="./src/js/modules/ui/router.mjs" type="module"></script>
 </body>
 
 </html>
