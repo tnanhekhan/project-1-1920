@@ -1,7 +1,7 @@
 import "../../libs/routie.js"
-import {BookRepository} from "../data/repo/book-repository.mjs";
-import {TopicRepository} from "../data/repo/topic-repository.mjs";
-import {Template} from "./template.mjs";
+import { BookRepository } from "../data/repo/book-repository.mjs";
+import { TopicRepository } from "../data/repo/topic-repository.mjs";
+import { Template } from "./template.mjs";
 import * as ChangeUi from "../ui/change-ui.mjs";
 
 // dependencies
@@ -108,14 +108,26 @@ routie({
     },
     "group/:group": group => {
         userGroup = group;
+        setTopics()
         ChangeUi.replaceGroupByTopicQuestion()
     }
 });
 
 function setupModal() {
     template.renderGroups(topicRepository.getGroups());
-    template.renderTopics(topicRepository.getTopics());
+
+    ChangeUi.hideAllSections();
+    ChangeUi.showModal();
 }
+
+function setTopics() {
+    if (userGroup >= 6) {
+        template.renderTopics(topicRepository.getTopicsYoungAdults());
+    } else {
+        template.renderTopics(topicRepository.getTopicsYouth());
+    }
+}
+
 
 function fetchBooks(topic, page) {
     ChangeUi.hideAllSections();

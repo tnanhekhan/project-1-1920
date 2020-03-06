@@ -3,16 +3,52 @@ export class TopicRepository {
         return ["Groep 4", "Groep 5", "Groep 6", "Groep 7", "Groep 8"];
     }
 
-    getTopics() {
+    getTopicsYoungAdults() {
         return [
-            ["Dieren", "Honden", "Katten", "Paarden", "Dinosaurussen", "Vogels", "Huisdieren", "Wilde dieren", "Dolfijnen", "Zindelijkheid", "Insecten"],
-            ["Jaargetijden", "Lente", "Zomer", "Herfst", "Winter", "Pasen"],
-            ["Landen", "Nederland", "Frankrijk", "Amsterdam", "Verenigde Staten", "Afrika", "Suriname", "New York (stad)"],
-            ["Geschiedenis", "Middeleeuwen", "17e eeuw", "19e eeuw", "Toekomst", "Egyptische Oudheid", "Prehistorie"],
-            ["Sport", "Voetbal"],
-            ["Mode", "Kleding", "Winkelen"],
-            ["Natuur", "Aarde", "Natuurwetenschappen", "Ruimtevaart"],
+            ["Jaargetijden"],
+            ["Lente"],
+            ["Zomer"],
+            ["Herfst"],
+            ["Winter"],
+            ["Pasen"],
+            ["Landen"],
+            ["Nederland"],
+            ["Frankrijk"],
+            ["Amsterdam"],
+            ["Afrika"],
+            ["Suriname"],
+
+            ["Geschiedenis"],
+            ["Middeleeuwen"],
+            ["Prehistorie"],
+
+            ["Natuur"],
+            ["Aarde"],
+            ["Natuurwetenschappen"],
+            ["Ruimtevaart"],
+
             ["Reizen"],
+            ["Eten"],
+            ["Muziek"]
+        ];
+    }
+    getTopicsYouth() {
+        return [
+            ["Dieren"],
+            ["Honden"],
+            ["Katten",],
+            ["Paarden"],
+            ["Dinosaurussen"],
+            ["Vogels"],
+            ["Huisdieren"],
+            ["Wilde dieren"],
+            ["Dolfijnen"],
+            ["Insecten"],
+            ["Sport"],
+            ["Voetbal"],
+            ["Mode"],
+            ["Kleding"],
+            ["Winkelen"],
             ["Eten"],
             ["Muziek"]
         ];

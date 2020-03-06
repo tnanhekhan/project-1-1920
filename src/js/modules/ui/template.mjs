@@ -148,9 +148,6 @@ export class Template {
             }
         };
 
-        ChangeUi.hideAllSections();
-        ChangeUi.showModal();
-
         Transparency.render(
             document.getElementById("modal-topics-container"),
             mainTopicsData,
