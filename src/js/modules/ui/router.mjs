@@ -31,6 +31,18 @@ document.getElementById("main-search-button").onclick = () => {
     }
 };
 
+modalSearchInput.addEventListener("keydown", event => {
+    if (event.key === 'Enter' && mainSearchInput.value && mainSearchInput.value.length) {
+        routie(`topic/${mainSearchInput.value}`);
+    }
+});
+
+mainSearchInput.addEventListener("keydown", event => {
+    if (event.key === 'Enter' && mainSearchInput.value && mainSearchInput.value.length) {
+        routie(`topic/${mainSearchInput.value}`);
+    }
+});
+
 document.getElementById("modal-search-button").onclick = () => {
     if (modalSearchInput && modalSearchInput.value) {
         routie(`topic/${modalSearchInput.value}`);

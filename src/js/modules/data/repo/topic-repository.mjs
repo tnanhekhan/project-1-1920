@@ -6,9 +6,9 @@ export class TopicRepository {
     getTopics() {
         return [
             ["Dieren", "Honden", "Katten", "Paarden", "Dinosaurussen", "Vogels", "Huisdieren", "Wilde dieren", "Dolfijnen", "Zindelijkheid", "Insecten"],
-            ["Seizoenen", "Lente", "Zomer", "Herfst", "Winter", "jaargetijden", "Pasen"],
+            ["Jaargetijden", "Lente", "Zomer", "Herfst", "Winter", "Pasen"],
             ["Landen", "Nederland", "Frankrijk", "Amsterdam", "Verenigde Staten", "Afrika", "Suriname", "New York (stad)"],
-            ["Geschiedenis", "Middeleeuwen", "17e eeuw", "19e eeuw", "Toekomst", "Egyptische Oudheid", "Prehistorie", "Jodenvervolging"],
+            ["Geschiedenis", "Middeleeuwen", "17e eeuw", "19e eeuw", "Toekomst", "Egyptische Oudheid", "Prehistorie"],
             ["Sport", "Voetbal"],
             ["Mode", "Kleding", "Winkelen"],
             ["Natuur", "Aarde", "Natuurwetenschappen", "Ruimtevaart"],
